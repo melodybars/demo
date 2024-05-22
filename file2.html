@@ -4,10 +4,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        #img {
+            display: none;
+        }
+        .img1 {
+            width: 100%;
+            height: 50%;
+            object-position: center;
+            object-fit: cover;
+        }
+        p {
+            color: white;
+            background-color: black;
+            padding: 20px;
+            font-size: 40px;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-    <h1>Hi, I am file 2</h1>
-    <h2>Lorem, ipsum dolor.</h2>
-    <h3>Lorem, ipsum dolor.</h3>
+    <div id="img">
+        <img
+            class="img1"
+            src="https://images.unsplash.com/photo-1491154664016-3a6107d463ca?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fDE4JTIweXJhZXMlMjBvbGQlMjBnaXJsfGVufDB8fDB8fHww"
+            alt=""
+        />
+        <p>You can enjoy</p>
+    </div>
+    <script>
+        let age = prompt("Hey, what is your age?");
+        age = Number.parseInt(age);
+
+        if (age > 18) {
+            document.getElementById("img").style.display = "block";
+        } else {
+            alert("Sorry, you are not eligible to view this content.");
+        }
+    </script>
 </body>
 </html>
