@@ -1,13 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <script>
-        
+      //       const candrive = (age) => {
+      //         return age >= 18 ? true:false;
+      //       };
+      //       let tryagain=true;
+      //       let v;
+
+      //       while (tryagain) {
+      //           let age = prompt("Enter your age");
+      //           age = Number.parseInt(age);
+      //         if (age<0) {
+      //             console.error("please enter the valid age")
+      //             break;
+      //         }
+      //     if (candrive(age)) {
+      //         alert("you can drive");
+      //        v= prompt("which car you want to drive?")
+      //        alert("welcome to " +  v  + " showroom ")
+      //     }
+      //      else {
+      //         alert("you cannot drive");
+      //     }
+      //     tryagain= confirm("do you  play again ")
+
+      // }
+
+      // let number =prompt("Enter your number")
+      // number=Number.parseInt(number)
+      // if (number>4) {
+      //     location.href = "https://unsplash.com/"
+      // }
+
+      let again = true;
+
+      while (again) {
+        let bg_color = prompt("Enter background color:");
+        document.body.style.background = bg_color;
+        again = confirm("Do you want to change the background color again?");
+      }
+   
     </script>
-</body>
+  </body>
 </html>
