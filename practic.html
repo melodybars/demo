@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        .container{
+            display: flex;
+         align-items: center;
+         justify-content: center;
+        }
+        .box{
+         width: 100px;
+         height: 80px;
+         border: 2px solid black;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         margin: 10px;
+         color: rgb(255, 0, 0);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box">box1</div>
+        <div class="box">box2</div>
+        <div class="box">box3</div>
+        <div class="box">box4</div>
+        <div class="box">box5</div>
+    </div>
+    <script>
+
+        let boxes = document.querySelector(".container").children
+        console.log(boxes)
+
+        function getrandomcolor() {
+            val1= Math.ceil(0 + Math.random() * 255)
+            val2= Math.ceil(0 + Math.random() * 255)
+            val3= Math.ceil(0 + Math.random() * 255)
+            return ` rgb(${val1},${val2},${val3})`
+        }
+        Array.from(boxes).forEach(e => {
+            e.style.backgroundColor=getrandomcolor()
+        });
+        // let boxes = document.querySelector(".container").children
+        // // console.log(boxes)
+        // function getrandumcolor() {
+        //     val1= Math.ceil(0 + Math.random() * 255)
+        //     val2=Math.ceil(0 + Math.random() * 255)
+        //     val3= Math.ceil(0 + Math.random() * 255)
+        //     return `rgb(${val1}, ${val2}, ${val3})`;
+        // }
+        
+        //         Array.from(boxes).forEach(e => {
+        //             e.style.backgroundColor=getrandumcolor()
+        //             e.style.color=getrandumcolor()
+        // });
+
+        
+    </script>
+</body>
+</html>

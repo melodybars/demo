@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="new" class="container">hello world</div>
+    <script>
+        let v = document.getElementById("new");
+        let m = v.setAttribute("class","true sachin")
+        let h = v.getAttribute("class");
+        console.log(h);
+        console.log(v.hasAttribute("class"))
+        let p = v.removeAttribute("class","true sachin")
+        console.log(v.attributes)
+    </script>
+</body>
+</html>
