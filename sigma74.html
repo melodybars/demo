@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0%;
+        padding: 0%;
+        box-sizing: border-box;
+        overflow: hidden;
+      }
+      .container {
+        width: 100%;
+        height: auto;
+       
+      }
+      nav {
+        width: 100%;
+        padding: 20px 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: rgb(163, 156, 74);
+      }
+      ul {
+        width: 100%;
+        height: 670px;
+        background: url(https://images.unsplash.com/photo-1690268473978-d2e465e094a4?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw4fHx8ZW58MHx8fHx8);
+        background-position: center;
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        opacity: .8;
+      }
+      li {
+        list-style: none;
+        padding: 20px 10px;
+      }
+      li a {
+        text-decoration: none;
+        font-size: 30px;
+        color: white;
+      }
+      footer {
+        width: 100%;
+        height: 51px;
+        background-color: rgb(105, 108, 104);
+      }
+
+      /* .container{
+        padding: 20px;
+        background-color: red;
+      }
+      .childcontainer{
+        padding: 20px;
+        background-color: rgb(219, 241, 47);
+      }
+      .child{
+        padding: 20px;
+        background-color: rgb(31, 93, 17);
+      } */
+    </style>
+  </head>
+  <body>
+    <!-- <div class="container">container
+        <div class="childcontainer"> childcontainer
+            <div class="child">child</div>
+        </div>
+
+    </div> -->
+    <div class="container">
+      <nav>
+        <div>Logo</div>
+        <div>
+          <i class="fa-solid fa-bars"></i>
+        </div>
+      </nav>
+    </div>
+    <ul>
+      <li><a href="#" id="box1">Home</a></li>
+      <li><a href="#" id="box2">About</a></li>
+      <li><a href="#" id="box3">Service</a></li>
+      <li><a href="#" id="box4">Contact</a></li>
+    </ul>
+    <footer></footer>
+    <script>
+        
+        
+        let button1 = document.getElementById("box1")
+        button1.addEventListener("click",()=>{
+                let ul = document.getElementsByTagName("ul")[0];
+                ul.style.backgroundImage = "url('https://plus.unsplash.com/premium_photo-1683141007892-52790d3a449b?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw1fHx8ZW58MHx8fHx8')";
+                let nav = document.getElementsByTagName("nav")[0];
+                nav.style.backgroundColor="red"
+                nav.style.color="white"
+                let footer = document.getElementsByTagName("footer")[0];
+                footer.style.backgroundColor="blue"
+                let a = document.getElementsByTagName("a")[0];
+                a.style.color="red"
+                let f = document.getElementsByTagName("a")[3];
+                f.style.color="white"
+            })
+            let button2 = document.getElementById("box2")
+            button2.addEventListener("click",()=>{
+                    let ul = document.getElementsByTagName("ul")[0];
+                    ul.style.backgroundImage = "url(https://images.unsplash.com/photo-1717496002081-38a90d3cba26?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw2fHx8ZW58MHx8fHx8)"
+                    let nav = document.getElementsByTagName("nav")[0];
+                    nav.style.backgroundColor="blue"
+                    nav.style.color="black"
+                    let footer = document.getElementsByTagName("footer")[0];
+                    footer.style.backgroundColor="red"
+                    let b = document.getElementsByTagName("a")[1];
+                    b.style.color="red"
+                    let a = document.getElementsByTagName("a")[0];
+                    a.style.color="white"
+                })
+                let button3 = document.getElementById("box3")
+                button3.addEventListener("click",()=>{
+                        let ul = document.getElementsByTagName("ul")[0];
+                        ul.style.backgroundImage = "url(https://plus.unsplash.com/premium_photo-1700752853984-d3d1574aabd2?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxN3x8fGVufDB8fHx8fA%3D%3D)"
+                        let nav = document.getElementsByTagName("nav")[0];
+                        nav.style.backgroundColor="green"
+                        nav.style.color="white"
+                        let footer = document.getElementsByTagName("footer")[0];
+                        footer.style.backgroundColor="yellow"
+                        let b = document.getElementsByTagName("a")[2];
+                        b.style.color="red"
+                        let a = document.getElementsByTagName("a")[0];
+                        a.style.color="white"
+                        let c = document.getElementsByTagName("a")[1];
+                        c.style.color="white"
+                    })
+                    let button4 = document.getElementById("box4")
+                    button4.addEventListener("click",()=>{
+                            let ul = document.getElementsByTagName("ul")[0];
+                            ul.style.backgroundImage = "url(https://images.unsplash.com/photo-1716881757832-b71ca98e3ca5?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxMXx8fGVufDB8fHx8fA%3D%3D)"
+                            let nav = document.getElementsByTagName("nav")[0];
+                            nav.style.backgroundColor="yellow"
+                            nav.style.color="black"
+                            let footer = document.getElementsByTagName("footer")[0];
+                            footer.style.backgroundColor="green"
+                            let b = document.getElementsByTagName("a")[3];
+                            b.style.color="red"
+                            let a = document.getElementsByTagName("a")[0];
+                            a.style.color="white"
+                            let d = document.getElementsByTagName("a")[1];
+                            d.style.color="white"
+                            let e = document.getElementsByTagName("a")[2];
+                            e.style.color="white"
+                        })
+                        
+                        </script>
+  </body>
+  </html>
+  
+  <!-- <div class="container">
+      <div class="box">
+          hey ,I am a box
+        </div>
+    </div>
+    <button id="btn">click here</button>
+    <button id="btn2">mouseover</button>
+    <script>
+        let button = document.getElementById("btn")
+        button.addEventListener("click",()=>{
+            document.querySelector(".box").style.color="red"
+            document.querySelector(".box").style.backgroundColor="yellow"
+        })
+        let button1 = document.getElementById("btn2")
+        button1.addEventListener("contextmenu",()=>{
+            document.querySelector(".box").innerHTML = "<b> Don,t click right click</b>"
+        })
+
+
+
+
+        //   setInterval(() => {
+            //     let ul = document.getElementsByTagName("ul")[0];
+            //      ul.style.backgroundImage = "url('https://plus.unsplash.com/premium_photo-1683141007892-52790d3a449b?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw1fHx8ZW58MHx8fHx8')";
+            //      let nav = document.getElementsByTagName("nav")[0];
+            //      nav.style.backgroundColor="red"
+            //     nav.style.color="white"
+            //     let footer = document.getElementsByTagName("footer")[0];
+            //     footer.style.backgroundColor="blue"
+            //     let a = document.getElementsByTagName("a")[0];
+            //     a.style.color="red"
+            //     let f = document.getElementsByTagName("a")[3];
+            //     f.style.color="white"
+            
+            //   }, 3000);
+
+
+
+
+            // let av = document.querySelector(".child")
+            // av.addEventListener("click",(e)=>{
+            //     e.stopPropagation()
+            //     alert("clicked child")
+            // })
+            // let a1 = document.querySelector(".childcontainer")
+            // a1.addEventListener("click",()=>{
+            //       alert("clicked childcontainer")
+            // })
+            // let a2 = document.querySelector(".container")
+            // a2.addEventListener("click",()=>{
+            //       alert("clicked container")
+            // })
+        </script> -->

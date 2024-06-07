@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 0;
+        min-height: 100vh;
+      }
+      .bg {
+        background: url(https://media.istockphoto.com/id/1278437259/photo/skateboarder-woman-smoking-weed.jpg?s=612x612&w=0&k=20&c=YSfgVAD76mudxBXeJIiOktZ8J8p9FcCOFM6J-adyX3Q=);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        height: calc(100vh + 60px);
+        width: calc(100vw + 60px);
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        filter: blur(0px);
+      }
+      .loading-text {
+        font-size: 50px;
+        color: rgb(255, 255, 255);
+      }
+      .loading-text2 {
+        font-size: 50px;
+        color: rgb(255, 255, 255);
+        position: absolute;
+        top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="bg"></section>
+    <div class="loading-text">0%</div>
+    <!-- <div class="loading-text2">0%</div> -->
+    <script>
+      let loadingtext = document.querySelector(`.loading-text`);
+      let bg = document.querySelector(`.bg`);
+      let load = 0;
+      let int = setInterval(blurring, 70);
+      const scale = (num, in_min, in_max, out_min, out_max) => {
+        return (
+          ((num - in_min) * (out_max - out_min)) / (in_max - in_min) + out_min
+        );
+      };
+
+      function blurring() {
+        load++;
+        if (load > 99) {
+          clearInterval(int);
+        }
+        loadingtext.innerHTML = `${load}%`;
+        loadingtext.style.opacity = scale(load, 0, 100, 1, 0);
+
+        bg.style.filter = `blur(${scale(load, 0, 100, 60, 0)}px)`;
+      }
+      // let loadingtext2 = document.querySelector(`.loading-text2`);
+      // let loder = 100;
+      // let breake = setInterval(minus, 30);
+
+      // function minus() {
+      //   loder--;
+      //   if (loder < 1) {
+      //     clearInterval(breake);
+      //   }
+      //   loadingtext2.innerHTML = `${loder}%`;
+      // }
+    </script>
+  </body>
+</html>
