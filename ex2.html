@@ -1,291 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-  </head>
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow: hidden;
-      height: 100vh;
-      font-family: Arial, Helvetica, sans-serif;
-      margin: 0%;
-      
-    }
-
-    .container {
-      width: 90vw;
-      display: flex;
-    }
-
-    .panel {
-      background-position: center;
-      background-size: cover;
-      background-repeat: no-repeat;
-      height: 80vh;
-      color: white;
-      cursor: pointer;
-      border-radius: 50px;
-      flex: 0.5;
-      margin: 10px;
-      transition: flex .7s ease-in;
-      position: relative;
-    }
-    .panel.active{
-        flex: 8;
-    }
-    h3{
-        position: absolute;
-        bottom: 20px;
-        left: 20px;
-        opacity: 0;
-
-    }
-    .panel.active h3{
-        opacity: 1;
-
-    }
-    @media (max-width:480px) {
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            background-color: #f6f7fb;
+            margin: 0;
+        }
         .container{
-            width: 100vw;
+            text-align: center;
         }
-        .panel:nth-of-type(4),
-        .panel:nth-of-type(5){
-            display: none;
+        .progress-container{
+            display: flex;
+            justify-content: space-between;
+            max-width: 100%;
+            width: 350px;
+            margin-bottom: 20px;
+            position: relative;
         }
-    }
-   
-  </style>
-
-  <body>
-  
+        .progress-container::before{
+            content: '';
+            background-color: lightgray;
+            height: 4px;
+            width: 100%;
+            transform: translateY(-50%);
+            position: absolute;
+            top: 50%;
+            left: 0;
+            z-index: -1;
+        }
+        #progress{
+            background-color: dodgerblue;
+            height: 4px;
+            width: 0%;
+            transform: translateY(-50%);
+            position: absolute;
+            top: 50%;
+            left: 0;
+            z-index: -1;
+            transition: .4s ease;
+        }
+        .circle{
+            background-color: #fff;
+            color:gray;
+            border: 2px solid lightgray;
+            border-radius: 50%;
+            height: 30px;
+            width: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .active{
+            border: 3px solid dodgerblue;
+        }
+        .btn{
+            background-color: dodgerblue;
+            padding: 8px 30px;
+            margin: 7px;
+            border: none;
+            color: #fff;
+            font-size: 14px;
+            border-radius: 7px;
+            cursor: pointer;
+            
+        }
+        .btn:active{
+            transform: scale(0.98);
+        }
+        .btn:disabled{
+            background-color: lightgray;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
     <div class="container">
-        <div class="panel active" style="background-image: url('https://plus.unsplash.com/premium_photo-1682125696942-aa06d72b6311?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8c21va2luZyUyMGJveXxlbnwwfDB8MHx8fDA%3D');">
-        
-            <h3>Explore The World</h3>
-            
+        <div class="progress-container">
+            <div id ="progress"></div>
+            <div class="circle active">1</div>
+            <div class="circle">2</div>
+            <div class="circle">3</div>
+            <div class="circle">4</div>
         </div>
-        <div class="panel" style="background-image: url('https://plus.unsplash.com/premium_photo-1661962244620-343b7ed42a16?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YnVyanxlbnwwfDB8MHx8fDA%3D');">
-        
-            <h3>Explore The World</h3>
-            
-        </div>
-        <div class="panel" style="background-image: url('https://images.unsplash.com/photo-1555613738-1e573bb5f481?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8YnVyanxlbnwwfDB8MHx8fDA%3D');">
-        
-            <h3>Explore The World</h3>
-            
-        </div>
-        <div class="panel" style="background-image: url('https://images.unsplash.com/photo-1566844010650-5ebc4a21971f?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8c21va2luZyUyMGJveXxlbnwwfDB8MHx8fDA%3D');">
-        
-            <h3>Explore The World</h3>
-            
-        </div>
-        <div class="panel" style="background-image: url('https://images.unsplash.com/photo-1610821658411-b5b12b2a1d6c?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGJ1cmp8ZW58MHwwfDB8fHww');">
-        
-            <h3>Explore The World</h3>
-            
-        </div>
+        <button class="btn" id="prev" disabled>Prev</button>
+        <button class="btn" id="next">Next</button>
     </div>
-
-
+   
     <script>
-    
+        let progress = document.getElementById('progress');
+        let prev = document.getElementById('prev');
+        let next = document.getElementById('next');
+        let circles = document.querySelectorAll('.circle');
+        let currentActive = 1;
 
+        next.addEventListener("click", () => {
+            currentActive++;
+            if (currentActive > circles.length) {
+                currentActive = circles.length;
+            }
+            update();
+        });
 
+        prev.addEventListener("click", () => {
+            currentActive--;
+            if (currentActive < 1) {
+                currentActive = 1;
+            }
+            update();
+        });
 
-   let a = document.querySelectorAll(".panel")
-   a.forEach(panel => {
-    panel.addEventListener("click",()=>{
-        removeclass()
-        panel.classList.add("active")
-    })
-   });
-   function removeclass() {
-    a.forEach(panel => {
-        panel.classList.remove("active")
-    });
-   }
+        function update() {
+            circles.forEach((circle, idx) => {
+                if (idx < currentActive) {
+                    circle.classList.add('active');
+                } else {
+                    circle.classList.remove('active');
+                }
+            });
+            progress.style.width = (currentActive - 1) / (circles.length - 1) * 100 + '%';
 
+            prev.disabled = currentActive === 1;
+            next.disabled = currentActive === circles.length;
+        }
 
-
-// function getrandomcolor() {
-//     const val1 = Math.ceil(Math.random() * 255);
-//     const val2 = Math.ceil(Math.random() * 255);
-//     const val3 = Math.ceil(Math.random() * 255);
-//     return `rgb(${val1},${val2},${val3})`;
-// }
-// let body = document.getElementsByTagName("body")[0]
-// function changecolor() {
-//     body.style.backgroundColor = getrandomcolor()
-// }
-// setInterval(changecolor,300)
-
-
-
-    </script>
-    
-  </body>
+    </script> 
+</body>
 </html>
 
 
 
 
-<!-- <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <style>
-      * {
-        box-sizing: border-box;
-      }
 
-      body {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        overflow: hidden;
-        height: 100vh;
-        font-family: Arial, Helvetica, sans-serif;
-        margin: 0;
-        z-index: -1;
-        filter: blur(0px);
-      }
 
-      .container {
-        width: 90vw;
-        display: flex;
-      }
 
-      .panel {
-        background-position: center;
-        background-size: cover;
-        background-repeat: no-repeat;
-        height: 80vh;
-        color: white;
-        cursor: pointer;
-        border-radius: 50px;
-        flex: 0.5;
-        margin: 10px;
-        transition: flex 0.7s ease-in;
-        position: relative;
-      }
 
-      .panel.active {
-        flex: 8;
-      }
 
-      h3 {
-        position: absolute;
-        bottom: 20px;
-        left: 20px;
-        opacity: 0;
-      }
 
-      .panel.active h3 {
-        opacity: 1;
-      }
-
-      @media (max-width: 480px) {
-        .container {
-          width: 100vw;
-        }
-        .panel:nth-of-type(4),
-        .panel:nth-of-type(5) {
-          display: none;
-        }
-      }
-
-      .loading-text {
-        font-size: 50px;
-        color: rgb(255, 255, 255);
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-      }
-    </style>
-  </head>
-  <body>
-    <div class="loading-text">0%</div>
-    <div class="container">
-      <div class="panel active" style="background-image: url('https://plus.unsplash.com/premium_photo-1682125696942-aa06d72b6311?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8c21va2luZyUyMGJveXxlbnwwfDB8MHx8fDA%3D');">
-        <h3>Explore The World</h3>
-      </div>
-      <div class="panel" style="background-image: url('https://images.unsplash.com/photo-1440504738219-a74a11143d50?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8c21va2luZyUyMGdpcmx8ZW58MHwwfDB8fHx8MA%3D%3D');">
-        <h3>Explore The World</h3>
-      </div>
-      <div class="panel" style="background-image: url('https://images.unsplash.com/photo-1598968255928-108f28e37e12?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHNtb2tpbmclMjBnaXJsfGVufDB8MHwwfHx8MA%3D%3D');">
-        <h3>Explore The World</h3>
-      </div>
-      <div class="panel" style="background-image: url('https://images.unsplash.com/photo-1566844010650-5ebc4a21971f?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8c21va2luZyUyMGJveXxlbnwwfDB8MHx8fDA%3D');">
-        <h3>Explore The World</h3>
-      </div>
-      <div class="panel" style="background-image: url('https://images.unsplash.com/photo-1604604167792-65d78aa53e43?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHNtb2tpbmclMjBib3l8ZW58MHwwfDB8fHww');">
-        <h3>Explore The World</h3>
-      </div>
-    </div>
-
-    <script>
-      // Function to get random RGB color
-      function getrandomcolor() {
-        const val1 = Math.ceil(Math.random() * 255);
-        const val2 = Math.ceil(Math.random() * 255);
-        const val3 = Math.ceil(Math.random() * 255);
-        return `rgb(${val1},${val2},${val3})`;
-      }
-
-      // Function to change background color of the body
-      function changecolor() {
-        body.style.backgroundColor = getrandomcolor();
-      }
-
-      // Function to handle panel click event
-      function removeclass() {
-        panels.forEach((panel) => {
-          panel.classList.remove("active");
-        });
-      }
-
-      const panels = document.querySelectorAll(".panel");
-      panels.forEach((panel) => {
-        panel.addEventListener("click", () => {
-          removeclass();
-          panel.classList.add("active");
-        });
-      });
-
-      let body = document.getElementsByTagName("body")[0];
-      setInterval(changecolor, 2000);
-
-      let loadingtext = document.querySelector(".loading-text");
-      let load = 0;
-      let int = setInterval(blurring, 70);
-
-      const scale = (num, in_min, in_max, out_min, out_max) => {
-        return (
-          ((num - in_min) * (out_max - out_min)) / (in_max - in_min) + out_min
-        );
-      };
-
-      function blurring() {
-        load++;
-        if (load > 99) {
-          clearInterval(int);
-        }
-        loadingtext.innerHTML = `${load}%`;
-        loadingtext.style.opacity = scale(load, 0, 100, 1, 0);
-        body.style.filter = `blur(${scale(load, 0, 100, 60, 0)}px)`;
-      }
-    </script>
-  </body>
-</html> -->

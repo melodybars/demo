@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>SEARCH</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            height: 100vh;
+            background: linear-gradient(to bottom, #ff7e5f, #feb47b, #ff7e5f);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            overflow: hidden;
+        }
+        .search{
+            position: relative;
+            height: 50px;
+        }
+        .input{
+            height: 50px;
+            width: 50px;
+            border: none;
+            padding: 15px;
+            font-size: 15px;
+            background-color: #fff;
+            color: black;
+            border-radius: 50%;
+            transition: width .3s ease;
+        }
+        .btn{
+            width: 50px;
+            height: 50px;border: none;
+            font-size: 24px;
+            background-color: #fff;
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-radius: 50%;
+            transition: transform .3s ease;
+        }
+        .input:focus,
+        .btn:focus{
+            outline: none;
+        }
+        .search.active .input{
+            width: 200px;
+            border-radius: 0;
+            
+        }
+        .search.active .btn{
+            transform: translateX(198px);
+            border-radius: 0;
+        }
+        
+        
+        </style>
+  </head>
+  <body>
+      <!-- <p>137.59.231.162</p> -->
+    <div class="search">
+      <input type="text" class="input" placeholder="Sarch..." />
+      <button class="btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+    </div>
+    <script>
+        let search = document.querySelector(".search")
+        let input = document.querySelector(".input")
+        let btn = document.querySelector(".btn")
+        btn.addEventListener("click",()=>{
+            search.classList.toggle("active")
+            input.focus()
+        })
+    </script>
+  </body>
+</html>

@@ -4,53 +4,273 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+  </head>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      height: 100vh;
+      font-family: Arial, Helvetica, sans-serif;
+      margin: 0%;
+      
+    }
+
+    .container {
+      width: 90vw;
+      display: flex;
+    }
+
+    .panel {
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      height: 80vh;
+      color: white;
+      cursor: pointer;
+      border-radius: 50px;
+      flex: 0.5;
+      margin: 10px;
+      transition: flex .7s ease-in;
+      position: relative;
+    }
+    .panel.active{
+        flex: 8;
+    }
+    h3{
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        opacity: 0;
+
+    }
+    .panel.active h3{
+        opacity: 1;
+
+    }
+    @media (max-width:480px) {
+        .container{
+            width: 100vw;
+        }
+        .panel:nth-of-type(4),
+        .panel:nth-of-type(5){
+            display: none;
+        }
+    }
+   
+  </style>
+
+  <body>
+  
+    <div class="container">
+        <div class="panel active" style="background-image: url('https://plus.unsplash.com/premium_photo-1682125696942-aa06d72b6311?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8c21va2luZyUyMGJveXxlbnwwfDB8MHx8fDA%3D');">
+        
+            <h3>Explore The World</h3>
+            
+        </div>
+        <div class="panel" style="background-image: url('https://plus.unsplash.com/premium_photo-1661962244620-343b7ed42a16?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YnVyanxlbnwwfDB8MHx8fDA%3D');">
+        
+            <h3>Explore The World</h3>
+            
+        </div>
+        <div class="panel" style="background-image: url('https://images.unsplash.com/photo-1555613738-1e573bb5f481?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8YnVyanxlbnwwfDB8MHx8fDA%3D');">
+        
+            <h3>Explore The World</h3>
+            
+        </div>
+        <div class="panel" style="background-image: url('https://images.unsplash.com/photo-1566844010650-5ebc4a21971f?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8c21va2luZyUyMGJveXxlbnwwfDB8MHx8fDA%3D');">
+        
+            <h3>Explore The World</h3>
+            
+        </div>
+        <div class="panel" style="background-image: url('https://images.unsplash.com/photo-1610821658411-b5b12b2a1d6c?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGJ1cmp8ZW58MHwwfDB8fHww');">
+        
+            <h3>Explore The World</h3>
+            
+        </div>
+    </div>
+
+
+    <script>
+    
+
+
+
+   let a = document.querySelectorAll(".panel")
+   a.forEach(panel => {
+    panel.addEventListener("click",()=>{
+        removeclass()
+        panel.classList.add("active")
+    })
+   });
+   function removeclass() {
+    a.forEach(panel => {
+        panel.classList.remove("active")
+    });
+   }
+
+
+
+// function getrandomcolor() {
+//     const val1 = Math.ceil(Math.random() * 255);
+//     const val2 = Math.ceil(Math.random() * 255);
+//     const val3 = Math.ceil(Math.random() * 255);
+//     return `rgb(${val1},${val2},${val3})`;
+// }
+// let body = document.getElementsByTagName("body")[0]
+// function changecolor() {
+//     body.style.backgroundColor = getrandomcolor()
+// }
+// setInterval(changecolor,300)
+
+
+
+    </script>
+    
+  </body>
+</html>
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
     <style>
       * {
         box-sizing: border-box;
       }
+
       body {
         display: flex;
         justify-content: center;
         align-items: center;
         overflow: hidden;
+        height: 100vh;
         font-family: Arial, Helvetica, sans-serif;
         margin: 0;
-        min-height: 100vh;
-      }
-      .bg {
-        background: url(https://media.istockphoto.com/id/1278437259/photo/skateboarder-woman-smoking-weed.jpg?s=612x612&w=0&k=20&c=YSfgVAD76mudxBXeJIiOktZ8J8p9FcCOFM6J-adyX3Q=);
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
-        height: calc(100vh + 60px);
-        width: calc(100vw + 60px);
-        position: absolute;
-        top: 0;
-        left: 0;
         z-index: -1;
         filter: blur(0px);
       }
+
+      .container {
+        width: 90vw;
+        display: flex;
+      }
+
+      .panel {
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 80vh;
+        color: white;
+        cursor: pointer;
+        border-radius: 50px;
+        flex: 0.5;
+        margin: 10px;
+        transition: flex 0.7s ease-in;
+        position: relative;
+      }
+
+      .panel.active {
+        flex: 8;
+      }
+
+      h3 {
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        opacity: 0;
+      }
+
+      .panel.active h3 {
+        opacity: 1;
+      }
+
+      @media (max-width: 480px) {
+        .container {
+          width: 100vw;
+        }
+        .panel:nth-of-type(4),
+        .panel:nth-of-type(5) {
+          display: none;
+        }
+      }
+
       .loading-text {
         font-size: 50px;
         color: rgb(255, 255, 255);
-      }
-      .loading-text2 {
-        font-size: 50px;
-        color: rgb(255, 255, 255);
         position: absolute;
-        top: 20px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
       }
     </style>
   </head>
   <body>
-    <section class="bg"></section>
     <div class="loading-text">0%</div>
-    <!-- <div class="loading-text2">0%</div> -->
+    <div class="container">
+      <div class="panel active" style="background-image: url('https://plus.unsplash.com/premium_photo-1682125696942-aa06d72b6311?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8c21va2luZyUyMGJveXxlbnwwfDB8MHx8fDA%3D');">
+        <h3>Explore The World</h3>
+      </div>
+      <div class="panel" style="background-image: url('https://images.unsplash.com/photo-1440504738219-a74a11143d50?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8c21va2luZyUyMGdpcmx8ZW58MHwwfDB8fHx8MA%3D%3D');">
+        <h3>Explore The World</h3>
+      </div>
+      <div class="panel" style="background-image: url('https://images.unsplash.com/photo-1598968255928-108f28e37e12?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHNtb2tpbmclMjBnaXJsfGVufDB8MHwwfHx8MA%3D%3D');">
+        <h3>Explore The World</h3>
+      </div>
+      <div class="panel" style="background-image: url('https://images.unsplash.com/photo-1566844010650-5ebc4a21971f?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8c21va2luZyUyMGJveXxlbnwwfDB8MHx8fDA%3D');">
+        <h3>Explore The World</h3>
+      </div>
+      <div class="panel" style="background-image: url('https://images.unsplash.com/photo-1604604167792-65d78aa53e43?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHNtb2tpbmclMjBib3l8ZW58MHwwfDB8fHww');">
+        <h3>Explore The World</h3>
+      </div>
+    </div>
+
     <script>
-      let loadingtext = document.querySelector(`.loading-text`);
-      let bg = document.querySelector(`.bg`);
+      // Function to get random RGB color
+      function getrandomcolor() {
+        const val1 = Math.ceil(Math.random() * 255);
+        const val2 = Math.ceil(Math.random() * 255);
+        const val3 = Math.ceil(Math.random() * 255);
+        return `rgb(${val1},${val2},${val3})`;
+      }
+
+      // Function to change background color of the body
+      function changecolor() {
+        body.style.backgroundColor = getrandomcolor();
+      }
+
+      // Function to handle panel click event
+      function removeclass() {
+        panels.forEach((panel) => {
+          panel.classList.remove("active");
+        });
+      }
+
+      const panels = document.querySelectorAll(".panel");
+      panels.forEach((panel) => {
+        panel.addEventListener("click", () => {
+          removeclass();
+          panel.classList.add("active");
+        });
+      });
+
+      let body = document.getElementsByTagName("body")[0];
+      setInterval(changecolor, 2000);
+
+      let loadingtext = document.querySelector(".loading-text");
       let load = 0;
       let int = setInterval(blurring, 70);
+
       const scale = (num, in_min, in_max, out_min, out_max) => {
         return (
           ((num - in_min) * (out_max - out_min)) / (in_max - in_min) + out_min
@@ -64,20 +284,8 @@
         }
         loadingtext.innerHTML = `${load}%`;
         loadingtext.style.opacity = scale(load, 0, 100, 1, 0);
-
-        bg.style.filter = `blur(${scale(load, 0, 100, 60, 0)}px)`;
+        body.style.filter = `blur(${scale(load, 0, 100, 60, 0)}px)`;
       }
-      // let loadingtext2 = document.querySelector(`.loading-text2`);
-      // let loder = 100;
-      // let breake = setInterval(minus, 30);
-
-      // function minus() {
-      //   loder--;
-      //   if (loder < 1) {
-      //     clearInterval(breake);
-      //   }
-      //   loadingtext2.innerHTML = `${loder}%`;
-      // }
     </script>
   </body>
-</html>
+</html> -->

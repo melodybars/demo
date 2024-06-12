@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            background: linear-gradient(to bottom, #7ad2fb, #feb47b, #5fafff);
+            overflow-x: hidden;
+        }
+        h1{
+            color: #fff;
+            padding: 20px;
+            font-size: 50px;
+        }
+        .box {
+            background-color: rgb(174 184 163);
+            width: 600px;
+            height: 400px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+            font-size: large;
+            margin: 20px;
+            border-radius: 10px;
+            transform: translateX(400%);
+            transition: transform 1s ease;
+           box-shadow: 1px 2px 13px 6px #6a6060;
+        }
+        .box:nth-of-type(even) {
+            transform: translateX(-400%); 
+        }
+        .box.show {
+            transform: translateX(0);
+        }
+        .box1{
+           height: 100%;
+           width: 50%;
+         
+        
+        }
+        .box1 img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 9px 0px 0px 9px;
+        }
+        .box2{
+            width: 50%;
+            height: 100%;
+           
+            color: rgb(252, 252, 252);
+            display: flex;
+            justify-content: center;
+            align-items: center;    
+            padding: 10px ;
+            
+
+        }
+        .box2 h3{
+            font-size: larger;
+            text-shadow: 1px -2px 0px rgb(255 255 255);
+            color: black;
+            margin: 10px;
+            font-size: 30px;
+            
+        }
+        .box2 p{
+            font-size: 30px;
+            text-shadow: 0 3px 3px rgb(255, 255, 255);
+            color: black;
+            margin: 10px;
+            font-weight: 400;
+        }
+    </style>
+</head>
+<body>
+<h1>Scroll To See The Animation</h1>
+<div class="box">
+<div class="box1"><img src="./116345974_3169791389779656_468673702515673817_n.jpeg" alt=""></div>
+<div class="box2">
+    <div class="content">
+        <h3>Ahsan Naeem</h3>
+        <p>Team Leader </p>
+    </div>
+</div>
+</div>
+<div class="box">
+    <div class="box1"><img src="https://chat.computeuniverse.com/user_avatars/2/54649842e0f08272ca681a144413a667a3b27d2c.png?version=11&s=50" alt=""></div>
+    <div class="box2">
+        <div class="content">
+            <h3>Talha Arshad</h3>
+            <p>Junior Devops Engineer</p>
+        </div>
+    </div>
+    </div>
+    <div class="box">
+        <div class="box1"><img src="./WhatsApp Image 2024-06-12 at 15.52.54.jpeg" alt=""></div>
+        <div class="box2">
+            <div class="content">
+                <h3>Numan Chandio</h3>
+                <p>Junior Phtyon Developer</p>
+            </div>
+        </div>
+        </div>
+        <div class="box">
+            <div class="box1"><img src="https://chat.computeuniverse.com/user_avatars/2/a2277f955ddf87e4afa5560e6ef4c45bccec388f.png?version=6&s=50" alt=""></div>
+            <div class="box2">
+                <div class="content">
+                    <h3>Hamid Bloch</h3>
+                    <p>Word Press Expert</p>
+                </div>
+            </div>
+            </div>
+            <div class="box">
+                <div class="box1"><img src="https://chat.computeuniverse.com/user_avatars/2/63b18101fe16b9397a2d303d5fed590982a633a2.png?version=2&s=50" alt=""></div>
+                <div class="box2">
+                    <div class="content">
+                        <h3>Hammad Ahmed</h3>
+                        <p>Senior Devops Engineer</p>
+                    </div>
+                </div>
+                </div>
+                <div class="box">
+                    <div class="box1"><img src="https://chat.computeuniverse.com/user_avatars/2/747e014964b34acd10ea4da5fc9e8d35abac6b7e.png?version=2&s=50" alt=""></div>
+                    <div class="box2">
+                        <div class="content">
+                            <h3>Tasaduk Abbas</h3>
+                            <p>Junior Devops Engineer</p>
+                        </div>
+                    </div>
+                    </div>
+
+<script>
+    // let boxes = document.querySelectorAll(".box");
+    // window.addEventListener("scroll", checkboxes);
+    
+
+    // function checkboxes() {
+    //     let triggerBottom = window.innerHeight / 4 * 2;
+    //     boxes.forEach(box => {
+    //         let boxTop = box.getBoundingClientRect().top;
+    //         if (boxTop < triggerBottom) {
+    //             box.classList.add("show");
+    //         } else {
+    //             box.classList.remove("show");
+    //         }
+    //     });
+    // }
+    let boxes = document.querySelectorAll(".box")
+    window.addEventListener("scroll",checkboxes)
+    function checkboxes() {
+        
+            let triggerBottom = window.innerHeight / 4 * 2
+            boxes.forEach(box => {
+                let boxtop =box.getBoundingClientRect().top
+                if (boxtop < triggerBottom ) {
+                    box.classList.add("show")
+                }else{
+                    box.classList.remove("show")
+                }
+            });
+        
+    }
+</script>
+</body>
+</html>
