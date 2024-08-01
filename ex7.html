@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+    </style>
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background-color: #333;
+        height: 100vh;
+        margin: 0;
+        overflow: hidden;
+        font-family: "Ubuntu", sans-serif;
+      }
+      .container {
+        width: 100%;
+        height: 100%;
+        background-color: #333;
+        position: relative;
+        display: flex;
+        flex-direction: row;
+      }
+      .split {
+        width: 50%;
+        height: 100%;
+        overflow: hidden;
+        position: relative;
+        transition: all .6s ease;
+      }
+      .split.left {
+        background: url("https://images.unsplash.com/photo-1552820728-8b83bb6b773f?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fFBsYXlzdGF0aW9uJTIwNHxlbnwwfDB8MHx8fDA%3D");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+      }
+      .split.left::before {
+        content: '';
+        height: 100%;
+        width: 100%;
+        background-color: rgb(57, 57, 61);
+        opacity: .7;
+        position: absolute;
+      }
+      .split.right {
+        background: url("https://images.unsplash.com/photo-1616341316676-fb436b96f99a?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fFBsYXlzdGF0aW9uJTIwNHxlbnwwfDB8MHx8fDA%3D");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+      }
+      .split.right::before {
+        content: '';
+        height: 100%;
+        width: 100%;
+        background-color: rgba(241, 242, 238, 0.462);
+        opacity: .5;
+        position: absolute;
+      }
+      h1 {
+        position: absolute;
+        top: 20%;
+        left: 50%;
+        font-size: 50px;
+        color: white;
+        transform: translateX(-50%);
+        white-space: nowrap;
+      }
+      .btn {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translateX(-50%);
+        text-decoration: none;
+        color: white;
+        border: 2px solid white;
+        font-size: 1rem;
+        width: 15rem;
+        padding: 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+      .split.right .btn:hover {
+        background-color: rgb(141, 142, 142);
+      }
+      .split.left .btn:hover {
+        background-color: rgb(56, 56, 54);
+      }
+      .hover-left .left {
+        width: 70%;
+      }
+      .hover-left .right {
+        width: 30%;
+      }
+      .hover-right .right {
+        width: 70%;
+      }
+      .hover-right .left {
+        width: 30%;
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          flex-direction: column;
+        }
+        .split {
+          width: 100%;
+          height: 50%;
+        }
+        .split.left, .split.right {
+          width: 100%;
+        }
+        .hover-left .left, .hover-left .right, .hover-right .right, .hover-right .left {
+          width: 100%;
+        }
+        h1 {
+          font-size: 35px;
+          top: 10%;
+        }
+        .btn {
+          top: 30%;
+          width: 10rem;
+          padding: 1rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        h1 {
+          font-size: 25px;
+          top: 5%;
+        }
+        .btn {
+          top: 20%;
+          width: 8rem;
+          padding: 0.75rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="split left">
+        <h1>PlayStation 5</h1>
+        <a href="#" class="btn">Buy Now</a>
+      </div>
+      <div class="split right">
+        <h1>PlayStation 5</h1>
+        <a href="#" class="btn">Buy Now</a>
+      </div>
+    </div>
+    <script>
+      let left = document.querySelector(".left")
+      let right = document.querySelector(".right")
+      let container = document.querySelector(".container")
+      left.addEventListener("mouseenter", () => {
+        container.classList.add("hover-left")
+      })
+      left.addEventListener("mouseleave", () => {
+        container.classList.remove("hover-left")
+      })
+      right.addEventListener("mouseenter", () => {
+        container.classList.add("hover-right")
+      })
+      right.addEventListener("mouseleave", () => {
+        container.classList.remove("hover-right")
+      })
+    </script>
+  </body>
+</html>

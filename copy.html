@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Copy H1 Text to Input</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        input {
+            margin: 5px 0;
+            padding: 10px;
+            font-size: 16px;
+            width: 1200px;
+        }
+        h1 {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- <h1 id="header">Click this header</h1>
+    <input type="text" id="inputField" placeholder="The header text will appear here">
+
+    <script>
+        // Function to append H1 text to input field
+        function copyHeaderText() {
+            // Get the text from the H1 tag
+            let headerText = document.getElementById("header").innerText;
+
+            // Append the text to the input field
+            let inputField = document.getElementById("inputField");
+            inputField.value += headerText;
+        }
+
+        // Add event listener to the H1 tag
+        let header = document.getElementById("header");
+        header.addEventListener("click", copyHeaderText);
+    </script> -->
+    <p id="copy">5</p>
+    <input type="text" id="paste">
+    <script>
+        function copytext() {
+            let a = document.getElementById("copy").innerText
+            let b = document.getElementById("paste")
+            b.value+= a
+        }
+        let a = document.getElementById("copy")
+        a.addEventListener("click",copytext)
+    </script>
+
+</body>
+</html>

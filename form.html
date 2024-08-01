@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey Form</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .container {
+            width: 100%;
+            height: 100vh;
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .outer {
+            width: 80%;
+            height: 90%;
+            background-color: orange;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .inner {
+            width: 65%;
+            height: 90%;
+            background-color: white;
+            overflow: hidden;
+        }
+        .header {
+            width: 100%;
+            text-align: center;
+            margin-top: 40px;
+        }
+        .email, .opt {
+            width: 85%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 20px auto;
+        }
+        .email input, .opt select, .opt textarea {
+            width: 50%;
+            height: 30px;
+            border: 1px solid lightgray;
+            padding: 5px;
+        }
+        .opt textarea {
+            height: 60px;
+        }
+        .btn {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 40px;
+        }
+        .btn button {
+            background-color: orange;
+            border: none;
+            width: 200px;
+            height: 40px;
+            border-radius: 10px;
+            font-size: 18px;
+            color: white;
+            cursor: pointer;
+        }
+        .btn button:active {
+            transform: scale(.95);
+        }
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+        }
+        table th, table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+        }
+        table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        table tr:hover {
+            background-color: #f1f1f1;
+        }
+        table th {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="outer">
+            <div class="inner">
+                <div class="header">
+                    <h1>Survey Form</h1>
+                    <p>User Stories Survey Form</p>
+                </div>
+                <form class="form">
+                    <div class="email">
+                        <label for="name">Name</label>
+                        <input type="text" name="name" id="name" placeholder="Enter your name">
+                    </div>
+                    <div class="email">
+                        <label for="email">Email</label>
+                        <input type="email" name="email" id="email" placeholder="Enter your email">
+                    </div>
+                    <div class="email">
+                        <label for="work">Work Experience</label>
+                        <input type="text" name="work" id="work" placeholder="Enter your work experience">
+                    </div>
+                    <div class="opt">
+                        <p>Are you comfortable investing in real estate on a platform without first investigating properly?</p>
+                        <select id="agree" name="agree">
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+                    <div class="opt">
+                        <p>Suggest ways to build a trusted platform:</p>
+                        <textarea id="suggestions" name="suggestions"></textarea>
+                    </div>
+                    <div class="opt">
+                        <p>You are ready to invest in:</p>
+                        <div>
+                            <input type="checkbox" id="real-estate" name="investment" value="real-estate">
+                            <label for="real-estate">Real Estate</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="mutual-funds" name="investment" value="mutual-funds">
+                            <label for="mutual-funds">Mutual Funds</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="crypto" name="investment" value="crypto">
+                            <label for="crypto">Cryptocurrency</label>
+                        </div>
+                        <div>
+                            <input type="checkbox" id="stocks" name="investment" value="stocks">
+                            <label for="stocks">Stocks & Bonds</label>
+                        </div>
+                    </div>
+                    <div class="opt">
+                        <p>Are you ready for further contacts?</p>
+                        <div>
+                            <input type="radio" id="contact-yes" name="contact" value="yes">
+                            <label for="contact-yes">Yes</label><br>
+                            <input type="radio" id="contact-no" name="contact" value="no">
+                            <label for="contact-no">No</label><br>
+                        </div>
+                    </div>
+                    <div class="btn">
+                        <button type="submit">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div>
+        <table>
+            <tbody id="table_data">
+                <!-- Table rows will be inserted here -->
+            </tbody>
+        </table>
+    </div>
+    <script>
+        const form = document.querySelector(".form");
+        form.addEventListener("submit", event => {
+            event.preventDefault();
+            const formData = new FormData(form);
+            const formObject = {};
+            formData.forEach((value, key) => {
+                if (formObject[key]) {
+                    // If the key already exists, convert it to an array and push the new value
+                    if (!Array.isArray(formObject[key])) {
+                        formObject[key] = [formObject[key]];
+                    }
+                    formObject[key].push(value);
+                } else {
+                    formObject[key] = value;
+                }
+            });
+    
+            // Convert formObject to table rows
+            const tableRow = `
+                <tr>
+                    <td>${formObject.name || ''}</td>
+                    <td>${formObject.email || ''}</td>
+                    <td>${formObject.work || ''}</td>
+                    <td>${formObject.agree || ''}</td>
+                    <td>${formObject.suggestions || ''}</td>
+                    <td>${Array.isArray(formObject.investment) ? formObject.investment.join(', ') : formObject.investment || ''}</td>
+                    <td>${formObject.contact || ''}</td>
+                </tr>
+            `;
+            document.getElementById("table_data").innerHTML = tableRow;
+        });
+    </script>
+</body>
+</html>

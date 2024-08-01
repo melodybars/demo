@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sounds</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            background-color: blueviolet;
+            text-align: center;
+            flex-wrap: wrap;
+        }
+        .btn{
+            background-color: rebeccapurple;
+            color: white;
+            margin: 1rem;
+            padding: 1rem 1.5rem;
+         text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            font-size: inherit;
+            border-radius: 5px;
+        }
+        .btn:focus{
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <audio id="one" src="./sounds/one.mp3"></audio>
+<audio id="two" src="./sounds/two.mp3"></audio>
+<audio id="three" src="./sounds/three.mp3"></audio>
+<audio id="four" src="./sounds/four.mp3"></audio>
+<audio id="five" src="./sounds/five.mp3"></audio>
+<div id="buttons"></div>
+
+<script>
+    const sounds = ['one', 'two', 'three', 'four', 'five'];
+    sounds.forEach(sound => {
+        const btn = document.createElement('button');
+        btn.classList.add('btn');
+        btn.innerText = sound;
+        btn.addEventListener("click", () => {
+            // Stop any currently playing sounds
+            sounds.forEach(s => {
+                const audio = document.getElementById(s);
+                audio.pause();
+                audio.currentTime = 0;
+            });
+            // Play the selected sound
+            document.getElementById(sound).play();
+        });
+        document.getElementById('buttons').appendChild(btn);
+    });
+</script>
+
+    <!-- <audio id="one" src="./sounds/one.mp3"></audio>
+    <audio id="two" src="./sounds/two.mp3"></audio>
+    <audio id="three" src="./sounds/three.mp3"></audio>
+    <audio id="four" src="./sounds/four.mp3"></audio>
+    <audio id="five" src="./sounds/five.mp3"></audio>
+    <div id="buttons"></div>
+    <script>
+        const Sounds = ['one','two','three','four','five']
+        Sounds.forEach(sound=>{
+            const btn = document.createElement('button')
+            btn.classList.add('btn')
+            btn.innerText =sound
+            btn.addEventListener("click",()=>{
+                document.getElementById('sound')
+            })
+            document.getElementById('buttons').appendChild(btn)
+            
+        })
+    </script>
+    -->
+</body>
+</html>

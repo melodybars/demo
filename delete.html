@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch API Example</title>
+</head>
+<body>
+    <h1>Data Table</h1>
+    <table id="data-table" border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Data will be inserted here -->
+        </tbody>
+    </table>
+    <button id="btn">show</button>
+
+    <script>
+        document.getElementById("button").addEventListener("DOMContentLoaded", () => {
+    const tableBody = document.querySelector("#data-table tbody");
+
+    // Fetch data from an API
+    fetch("https://jsonplaceholder.typicode.com/users")
+        .then(response => response.json())
+        .then(data => {
+            // Use map to transform the data into HTML rows
+            const rows = data.map(user => {
+                return `
+                    <tr>
+                        <td>${user.id}</td>
+                        <td>${user.name}</td>
+                        <td>${user.email}</td>
+                    </tr>
+                `;
+            }).join(""); // Join the array into a single string
+
+            // Insert the rows into the table body
+            tableBody.innerHTML = rows;
+        })
+        .catch(error => {
+            console.error("Error fetching data:", error);
+        });
+});
+
+    </script>
+</body>
+</html>

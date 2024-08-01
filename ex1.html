@@ -30,7 +30,7 @@
       background-position: center;
       background-size: cover;
       background-repeat: no-repeat;
-      height: 80vh;
+      height: 85vh;
       color: white;
       cursor: pointer;
       border-radius: 50px;
@@ -51,6 +51,8 @@
     }
     .panel.active h3{
         opacity: 1;
+        transition: opacity .3s ease-in-out .4s;
+        font-size: 30px;
 
     }
     @media (max-width:480px) {
@@ -101,18 +103,33 @@
 
 
 
-   let a = document.querySelectorAll(".panel")
-   a.forEach(panel => {
+  //  let a = document.querySelectorAll(".panel")
+  //  a.forEach(panel => {
+  //   panel.addEventListener("click",()=>{
+  //       removeclass()
+  //       panel.classList.add("active")
+  //   })
+  //  });
+  //  function removeclass() {
+  //   a.forEach(panel => {
+  //       panel.classList.remove("active")
+  //   });
+  //  }
+
+
+   let panels = document.querySelectorAll(".panel")
+   panels.forEach( panel => {
     panel.addEventListener("click",()=>{
-        removeclass()
-        panel.classList.add("active")
+       removeclass()
+      panel.classList.add("active")
     })
    });
    function removeclass() {
-    a.forEach(panel => {
-        panel.classList.remove("active")
-    });
+    panels.forEach(panel=>{
+      panel.classList.remove("active")
+    })
    }
+
 
 
 

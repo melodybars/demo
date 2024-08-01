@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Styled Table</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;    
+            background-color: #f0f0f0;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        table {
+            width: 60%;
+            border-collapse: collapse;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f4f4f4;
+            font-weight: bold;
+            color: black;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        thead {
+            background-color: #007BFF;
+            color: white;
+        }
+        thead th {
+            border-bottom: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Product Table</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Description</th>
+                <th>ID</th>
+            </tr>
+        </thead>
+        <tbody id="tablebody">
+        </tbody>
+    </table>
+    <script>
+  
+        const data1 = {
+            title: "New Product",
+            price: 29.99,
+            description: "This is a new product",
+           
+        }
+
+      
+        fetch("https://fakestoreapi.com/products", {
+            method: "POST",
+            body: JSON.stringify(data1),
+            headers: {
+                "Content-type": "application/json"
+            }
+        })
+        .then(res => res.json())
+        .then(data1 => {
+            console.log("Posted data response:", data1);
+            const datatable = `
+                <tr>
+                    <td>${data1.title}</td>
+                    <td>${data1.description}</td>
+                    <td>${data1.id}</td>
+                </tr>`;
+            document.getElementById("tablebody").innerHTML = datatable;
+        })
+        .catch(err => console.log("Error in posting data:", err));
+    </script>
+</body>
+</html>
