@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+              table thead {
+            background-color: #f2f2f2;
+        }
+        table th, table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+        }
+        table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        table tr:hover {
+            background-color: #f1f1f1;
+        }
+        table th {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tbody id="table_body"></tbody>
+    </table>
+    <script>
+        const data = {
+            title: "new maal",
+            id: "lorem 5",
+            description: "NOTHING",
+        };
+
+        fetch("https://fakestoreapi.com/products", {
+            method: "POST",
+            body: JSON.stringify(data),
+            headers: {
+                "Content-type": "application/json",
+            },
+        })
+        .then(res => res.json())
+        .then(data => {
+            const datatable = 
+                `<tr>
+                    <td>${data.title}</td>
+                    <td>${data.description}</td>
+                    <td>${data.price}</td>
+                   
+                </tr>`;
+
+            document.getElementById("table_body").innerHTML += datatable;
+        })
+        .catch(err => console.log("Error fetching data", err));
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            margin: 0;
+            background-color: #686de0;
+            flex-direction: column;
+        }
+        .container{
+            background-color: #fff;
+            width: 800px;
+            max-width: 100%;
+            padding: 50px 20px;
+            border-radius: 10px;
+            text-align: center;
+            
+        }
+        h3{
+            margin: 0;
+            opacity: .5;
+            letter-spacing: 2px;
+        }
+        .joke{
+            font-size: 30px;
+            letter-spacing: 1px;
+            line-height: 40px;
+            margin: 50px auto;
+            max-width: 600px;
+
+        }
+        .btn{
+            background-color: #9f68e0;
+            color: #fff;
+            border-radius: 10px;
+            border: 0;
+            padding: 14px 40px;
+            font-size: 16px;
+            cursor: pointer;
+            box-shadow: 0 10px 20px rgb(186, 184, 184);
+        }
+        .btn:focus{
+            outline: none;
+
+        }
+        .btn:active{
+            transform: scale(.95);
+            transition: all .2s ease-out;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h3>Don,t laugh challenge</h3>
+        <div id="joke" class="joke">
+            jokes are here
+        </div>
+        <button id="jokebtn" class="btn">Get Another Joke</button>
+    </div>
+    <script>
+       const jokeEl = document.getElementById('joke')
+       const jokeBtn = document.getElementById('jokebtn')
+
+       jokeBtn.addEventListener("click",generatejoke)
+
+       function generatejoke(params) {
+        
+       
+    const config = {
+        headers:{
+         'Accept': 'application/json'
+        }
+     
+    }
+    fetch("https://icanhazdadjoke.com/",config)
+    .then(res => res.json())
+    .then(data =>{
+        jokeEl.innerHTML=data.joke
+    })
+}
+generatejoke()
+    </script>
+</body>
+</html>

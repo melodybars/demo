@@ -108,22 +108,25 @@
         </thead>
         <tbody id="tablebody">
         </tbody>
+      
     </table>
     <script>
-        // fetch("https://fakestoreapi.com/products")
-        //     .then(response => response.json())
-        //     .then(data => {
-        //         const tableData = data.map(product => {
-        //             return `<tr>
-        //                         <td>${product.title}</td>
-        //                         <td>${product.description}</td>
-        //                         <td>${product.price}</td>
-        //                         <td><img src="${product.image}" alt="${product.title}"></td>
-        //                     </tr>`;
-        //         }).join("");
-        //         document.getElementById("table_data").innerHTML = tableData;
-        //     })
-        //     .catch(err => console.log("Error fetching data", err));
+        fetch("https://fakestoreapi.com/products")
+            .then(response => response.json())
+            .then(data => {
+                const tableData = data.map(product => {
+                    return `<tr>
+                                <td>${product.title}</td>
+                                <td>${product.description}</td>
+                                <td>${product.price}</td>
+                                <td><img src="${product.image}" alt="${product.title}"></td>
+                            </tr>`;
+                }).join("");
+                document.getElementById("tablebody").innerHTML = tableData;
+            })
+            .catch(err => console.log("Error fetching data", err));
+
+
         // fetch("https://fakestoreapi.com/products").then(response=>
         //   response.json())
         // .then(data=>{
@@ -163,34 +166,50 @@
 
 
 
-        const data = {
-        title: "new maal",
-        id:"lorem 5",
-        description:"NOTHING",
+    //     const data = {
+    //     title: "new maal",
+    //     id:"lorem 5",
+    //     description:"NOTHING",
         
-    }
-       let b= fetch("https://fakestoreapi.com/products",{
-            method:"Post",
-            body:JSON.stringify(data),
-            headers:{
-                "Content-type":"application/json",
-            },
-        }).then(res=> res.json())
-        .then(data=> console.log(data));
-        fetch("https://fakestoreapi.com/products").then(res=>res.json())
-        .then(data=>{
-            const datatable = data.map(product=>{
-                return  `<tr>
-                                 <td>${product.title}</td>
-                                 <td>${product.description}</td>
-                                 <td>${product.price}</td>
-                                <td><img src="${product.image}" alt="${product.title}"></td>
-                             </tr>`;
+    // }
+    //    let b= fetch("https://fakestoreapi.com/products",{
+    //         method:"Post",
+    //         body:JSON.stringify(data),
+    //         headers:{
+    //             "Content-type":"application/json",
+    //         },
+    //     }).then(res=> res.json())
+    //   .then(data =>{
+    //     const datatable = 
+    //            `<tr>
+    //                             <td>${product.title}</td>
+    //                              <td>${product.description}</td>
+    //                              <td>${product.price}</td>
+    //                             <td><img src="${product.image}" alt="${product.title}"></td>
+    //                        </tr>`;
 
-            })
-            document.getElementById("tablebody").innerHTML=datatable
-        })
-        .catch(err=>console.log(err,"Error fetching data"))
+    //     });
+    //     document.getElementById("table_body").innerText = datatable
+      
+    //   .catch(err => console.log("Error fetching data", err));
+
+        // fetch("https://fakestoreapi.com/products").then(res=>res.json())
+        // .then(data=>{
+        //     const datatable = data.map(product=>{
+        //         return  `<tr>
+        //                          <td>${product.title}</td>
+        //                          <td>${product.description}</td>
+        //                          <td>${product.price}</td>
+        //                         <td><img src="${product.image}" alt="${product.title}"></td>
+        //                      </tr>`;
+
+        //     })
+        //     document.getElementById("tablebody").innerHTML=datatable
+        // })
+        // .catch(err=>console.log(err,"Error fetching data"))
+
+
+ 
     </script>
 </body>
 </html>
