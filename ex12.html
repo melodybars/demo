@@ -96,6 +96,20 @@
       .faq.active .faq-toggle {
         background-color: #9fa4a8;
       }
+      .yellow{
+        height: 100px;
+        width: 100px;
+        border-radius: 50%;
+        border: 0;
+        background-color: yellow;
+      }
+      .red{
+        height: 100px;
+        width: 100px;
+        border-radius: 50%;
+        border: 0;
+        background-color: red;
+      }
     </style>
   </head>
   <body>
@@ -156,6 +170,9 @@
         </button>
       </div>
     </div>
+
+
+          
     <script>
       const toggles = document.querySelectorAll(".faq-toggle");
       toggles.forEach((toggle) => {
@@ -163,7 +180,9 @@
           toggle.parentNode.classList.toggle("active");
         });
       });
-  
+
+
+   
     </script>
   </body>
 </html>

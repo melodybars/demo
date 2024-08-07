@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            grid-gap: 10px;
+            width: 300px;
+            height: 300px;
+            
+        }
+        .box{
+            background-color: #f4f4f4;
+            color: #fff;
+            border-radius: 5px;
+            padding: 10px;
+            text-align: center;
+            font-size: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+
+        }
+
+        .box:hover{
+            background-color: #333;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <div>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque cupiditate ut esse distinctio eaque explicabo consectetur reprehenderit soluta. Veritatis adipisci ipsam hic iusto voluptatibus non ipsa qui et facilis quibusdam.
+        <div class="container">
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+        </div>
+    </div>
+    <script>
+        const boxes = document.querySelectorAll('.box');
+        boxes.forEach(box => {
+            box.style.backgroundColor = getRandomColor();
+        });
+        function getRandomColor(){
+            return `rgb(${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)})`;
+        }
+
+    </script>
+</body>
+</html>
